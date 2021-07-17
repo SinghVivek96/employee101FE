@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "heroku-postbuild": "npm run production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
