@@ -15,6 +15,7 @@ export class AppComponent implements OnInit{
   public filteredEmployees : Employee[]=[];
   public editEmployee :Employee | null=null;
   public deleteEmployee! :Employee;
+  public alreadyPresent : string = "";
   constructor(private employeeService : EmployeeService){
   } 
 
@@ -34,9 +35,12 @@ export class AppComponent implements OnInit{
     this.employeeService.addEmployee(addForm.value).subscribe(
       (response:Employee)=>{
         console.log(response);
+        this.alreadyPresent="";
         this.getEmployees();},
       (error:HttpErrorResponse)=>{
-        alert(error.message)}); 
+        // alert(error.message);
+        this.alreadyPresent="Employee already present.";
+      }); 
   }
 
   public onUpdateEmployee(addForm:NgForm):void{
@@ -44,9 +48,11 @@ export class AppComponent implements OnInit{
     this.employeeService.updateEmployee(addForm.value).subscribe(
       (response:Employee)=>{
         console.log(response);
+        this.alreadyPresent="";
         this.getEmployees();},
       (error:HttpErrorResponse)=>{
-        alert(error.message)}); 
+        // alert(error.message);
+        this.alreadyPresent="No such employee.";}); 
   }
 
   public onDeleteEmployee(employeeId:number|any):void{
@@ -54,9 +60,11 @@ export class AppComponent implements OnInit{
     if(employeeId){
       this.employeeService.deleteEmployee(employeeId).subscribe(
         (response: void)=>{
+          this.alreadyPresent="";
           this.getEmployees();},
         (error:HttpErrorResponse)=>{
-          alert(error.message)}); 
+          // alert(error.message);
+          this.alreadyPresent="No such employee.";}); 
     }
   }
 
