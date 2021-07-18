@@ -1,24 +1,13 @@
 {
   "name": "employee101-fe",
   "version": "0.0.0",
-<<<<<<< HEAD
-  "engines": {
-    "node": "14.15.0",
-    "npm": "7.11.2"
-  },
+
+  "engines": { "node": "16.5.0", "npm": "7.20.0" },
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
     "heroku-postbuild": "ng build --prod",
     "build": "ng build --prod",
-=======
-  "engines": { "node": "16.5.0", "npm": "7.20.0" },
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "heroku-postbuild": "npm run production",
->>>>>>> 97705852601fd55d9943ac66d269e84f9fde1b09
-    "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
   "private": true,
